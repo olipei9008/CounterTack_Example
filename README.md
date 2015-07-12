@@ -69,3 +69,30 @@ the labels printed from the main routine.  It uses a for loop to go through the 
 in "C:\Example\list.txt" and works because the times for restarting, unzipping, copying, and deleting 
 are always recorded in order.  This code also deletes list.txt afterwards so that a new list 
 can be created for each iteration.
+
+Challenges:
+------------
+
+-New to Batch: I went into this project having never used Batch before.  I deduced a batch 
+script would be the best fit for this project after some research.  Because of my inexperience, 
+I looked at what code was already available for problems presented by this project.
+
+-Counting Restarts: Some issues arose with counting the restart, especially when establishing the 
+count==0 case.  In a previous implementation, this condition caused an endless loop because count 
+was not being updated properly.  EnableDelayedExpansion solved this issue.
+
+-Measuring Time: There were two main issues regarding calculating time differences.  One was that 
+%time% has only a second digit hour for hour measures <10, so the %time% variable had to be called 
+as %time=0% in order for extracting hours as centiseconds to function properly.  Otherwise, negative 
+time measurements would result.  The other issue is that this implementation does not account for 
+the date, so measurements that occur between two days will not function properly.  While I did not 
+end up solving this issue due to time constraints, one possible solution I propose is using a Julian 
+conversion to turn the date into a number and using it in conjunction with the time in centiseconds 
+to solve this issue.
+
+-Print Data: Numerous issues arose from an older implementation.  A previous design involved using 
+:MeasureTime to print the data to the results, but this prevented formatting.  Another design tried 
+to return values from the subroutine by passing in variables as output, but this led to issues with 
+subroutine returns and getting the right values to be set properly.  A lot of confusion arose from this 
+design, so in the end the implementation involved printing the data from :MeasureTime to a text file, and 
+then grabbing the info from the text file to print out.
