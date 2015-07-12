@@ -1,4 +1,4 @@
-@echo on
+@echo off
 setlocal EnableDelayedExpansion
 cd /d %~dp0
 IF EXIST C:\Example\shutdown_time.txt (
