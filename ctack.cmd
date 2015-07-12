@@ -18,7 +18,7 @@ if /i %count% == 0 (
   set /a i_count=i_count+1
   echo !i_count! >C:\Example\count.txt
   echo %time: =0% >C:\Example\shutdown_time.txt
-  rem shutdown /r /t 10
+  shutdown /r /t 10
   goto:EOF
 )
 if /i %count% == 5 (
@@ -39,7 +39,7 @@ Call :PrintData %count%
 set /a count=count+1
 echo %count% >C:\Example\count.txt
 echo %time: =0% >C:\Example\shutdown_time.txt
-rem shutdown /r /t 10
+shutdown /r /t 10
 goto:EOF
 
 :UnZipFile
